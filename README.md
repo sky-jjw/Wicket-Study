@@ -10,7 +10,7 @@
  当我们使用Wicket进行编码时，我们通过将Web应用程序中布局这类的内容封装在HTML中，就可以为使用者提供一套干净的模板的目的，这套干净的模板仅仅包含一些HTML标记和Wicket占位符。
    说到这里，你可能简单的认为Wicket就是一个简单的HTML静态布局和Java动态实现的结合，那么只能说你只了解了其中非常少的一部分，Wicket还可以做很多的事情，但是这就需要你具有一个很好的抽象思维，这样你才能很好的使用Wicket。
 ## 资料
-[Wicket官网]（http://wicket.apache.org/）  
+[Wicket官网](http://wicket.apache.org/)      
 Wicket In Action   
 Pro Wicket
 
