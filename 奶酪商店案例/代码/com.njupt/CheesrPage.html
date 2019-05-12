@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="container">
+		<div id="head"></div>
+		<div id="content">
+			<div id="main">
+				<div wicket:id="cheeses">
+					<h3 wicket:id="name"></h3>
+					<p wicket:id="description"></p>
+					<span wicket:id="price"></span> <a wicket:id="add">add to cart</a>
+				</div>
+			</div>
+			<div id="cart">
+				<div wicket:id="shoppingPanel"></div>
+				<wicket:child></wicket:child>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

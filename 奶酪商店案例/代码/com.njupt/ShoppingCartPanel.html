@@ -1,0 +1,21 @@
+<wicket:panel>
+	<h3>Your selection</h3>
+	<table>
+		<tbody>
+			<tr wicket:id="cart">
+				<td wicket:id="name"></td>
+				<td wicket:id="price"></td>
+				<td><a wicket:id="remove">remove</a></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr class="total">
+				<th>Total</th>
+				<td wicket:id="total"></td>
+				<td>&nbsp;</td>
+			</tr>
+		</tfoot>
+	</table>
+	<input type="button" wicket:id="checkout" value="Check out" />
+
+</wicket:panel>
