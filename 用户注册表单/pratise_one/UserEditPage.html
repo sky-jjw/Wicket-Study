@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:wicket="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User Edit page</title>
+</head>
+<body>
+    <span style="color:red;" wicket:id="feedback"></span>
+
+    <form wicket:id="form">
+        <table border="1" align="center" cellspacing="1" cellpadding="7">
+            <tr>
+                <td>账号</td>
+                <td><input type="text" wicket:id="account"></td>
+            </tr>
+            <tr>
+                <td>名称</td>
+                <td><input type="text" wicket:id="name"></td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td>
+                    <span wicket:id="genderchoice"></span>
+                </td>
+            </tr>
+            <tr>
+               <td>密码</td>
+                <td><input type="password" wicket:id="password"></td>
+            </tr>
+            <tr>
+                <td>薪水</td>
+                <td><input type="text" wicket:id="salary"></td>
+            </tr>
+            <tr>
+                <td>工作类型</td>
+                <td><select wicket:id="job" multiple="single"></select></td>
+            </tr>
+            <tr>
+                <td>工作年限</td>
+                <td><select wicket:id="workYear"></select></td>
+            </tr>
+            <tr>
+                <td>婚姻状况</td>
+                <td><span valign="top" wicket:id="married" id="married"></span></td>
+            </tr>
+            <tr>
+                <td>爱好</td>
+                <td><span valign="top" wicket:id="favorites" id="favorites"></span></td>
+            </tr>
+            <tr>
+                <td>头像</td>
+                <td><input type="file" wicket:id="image"></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="submit"></td>
+                <td align="center"><input type="reset"></td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>
