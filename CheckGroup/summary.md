@@ -1,42 +1,31 @@
-# 搭建Wicket项目（使用Maven）  
-## 创建一个Maven项目  
-1.File -> New ->Maven Project;指定项目保存的目录（G:\myworkspace\Wicket-Study\Hello World）然后点击next  
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508145725.jpg)  
-2.选择 maven-archetype-webapp这一行，点击next  
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508145918.jpg)  
-3.GroupID是项目组织唯一的标识符，实际对应java的包的结构，是main目录里java的目录结构。  
-ArtifactID就是项目的唯一的标识符，实际对应项目的名称，就是项目根目录的名称,填好之后点击finish  
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508150116.jpg)  
-4.项目结构如下图所示  
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508150216.png)  
-5.接着右键项目名 Build Path ->Configure Build Path..，选中“JRE System Library[J2SE-1.5]”  
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508150343.jpg)  
-然后选择“Edit”，选择WorkSpace default JRE(jdk1.8.0_161)点击finish  
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508150448.png)  
-6.Java源文件的目录就创建好了，如下图所示  
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508150632.png)  
-## 导入wicket核心jar包
-1.
+# 对于多选框控件的学习总结 
+## html文件中的“秘密”
+先看html文件中的这几行代码：  
 ```
-<dependency>  		
-	<groupId>org.apache.wicket</groupId>
-	<artifactId>wicket-core</artifactId>
-	<version>8.0.0</version>
- </dependency>
- ```
-2.在pom.xml里添加上面的依赖
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508151018.png)  
-## 配置web.xml
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508151412.png)  
-## 建立Application
-在src/main/java下新建WicketExampleApplication类
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508151640.jpg)  
-## 建立HelloWorldPage.html
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508152249.png)  
-## 建立HelloWorldPage.java
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508152008.png)  
-## 在WicketExampleApplication类中返回HelloWorldPage.class
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508152100.png)  
-## 运行测试
-![](https://github.com/sky-jjw/Wicket-Study/blob/master/Hello%20World/resources/TIM%E5%9B%BE%E7%89%8720190508152350.png)
+<table border="1">
+	<tr wicket:id="sites">
+	<td><input type="checkbox" wicket:id="check"/></td>
+	<td><span wicket:id="name">这里是名称</span></td>
+	</tr>
+</table>
+```
+1.在运行本例子后，发现结果如下图：
+![1](https://github.com/sky-jjw/Wicket-Study/blob/master/CheckGroup/resources/1.png)  
+于是便好奇为何会出现方框？由于控件是Control层面的，数据是model层面的，html文件是view层面的，而控件的作用是解析html文件形成视图并将model中的数据放入视图，显然方框的出现与html文件中的描述web结构的信息有关。<td>、</td>便是方框出现的原因，以下是去掉这个描述结构的运行结果： 
+![3](https://github.com/sky-jjw/Wicket-Study/blob/master/CheckGroup/resources/3.png)  
+2.对于`<table border="1">`的理解，便是将其值进行变化，为5的时候结果如下图：
+![2](https://github.com/sky-jjw/Wicket-Study/blob/master/CheckGroup/resources/2.png)  
+所以由此猜测border是限定这个table的边界框的“厚度”。  
 
+## Java文件
+在代码中，通过定义list数组SITES来存储链接，Map数组NAMES来存储名字，并形成链接和名字直接的映射。最后通过如下代码：
+```
+ListView sites =  new ListView("sites", SITES ) {
+			protected void populateItem(ListItem item) {
+				Object object=item.getModelObject();
+				item.add( new Check("check",  new Model(Integer. toString (item.getIndex()))));
+				item.add( new Label("name", new Model((Serializable) NAMES .get(object))));
+			};
+		};
+```
+定义ListView控件来显示checkbox以及对应名字。其中通过匿名类的形式初始化了对象。
