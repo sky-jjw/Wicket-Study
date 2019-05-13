@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<span style="color:red;" wicket:id="feedback"></span>
+
+    <form wicket:id="form">
+        <table border="1" align="center" cellspacing="1" cellpadding="7">
+            <tr>
+                <td>账号</td>
+                <td><input type="text" wicket:id="account"></input></td>
+            </tr>
+            <tr>
+                <td>名称</td>
+                <td><input type="text" wicket:id="name"></input></td>
+            </tr>
+            <tr>
+                <td>是否为女</td>
+                <td><input type="checkbox" wicket:id="female"></input></td>
+            </tr>
+            <tr>
+               <td>密码</td>
+                <td><input type="password" wicket:id="password"></input></td>
+            </tr>
+            <tr>
+                <td>薪水</td>
+                <td><input type="text" wicket:id="salary"></input></td>
+            </tr>
+            <tr>
+                <td>工作类型</td>
+                <td><select wicket:id="job" multiple="single"></select></td>
+            </tr>
+            <tr>
+                <td>工作年限</td>
+                <td><select wicket:id="workYear"></select></td>
+            </tr>
+            <tr>
+                <td>婚姻状况</td>
+                <td><span valign="top" wicket:id="married" id="married"></span></td>
+            </tr>
+            <tr>
+                <td>爱好</td>
+                <td><span valign="top" wicket:id="favorites" id="favorites"></span></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="submit"></td>
+                <td align="center"><input type="reset"></td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>
