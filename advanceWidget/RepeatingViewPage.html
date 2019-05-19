@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:wicket="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>RepeatingViewPage</title>
+</head>
+<body>
+<h1>5+d6as46</h1>
+ <form wicket:id="form">
+     <table width="240" border="1">
+         <tr>
+             <th>选择</th>
+             <th>序号</th>
+             <th>书名</th>
+             <th>作者</th>
+             <th>操作</th>
+         </tr>
+         <tr wicket:id="books">
+             <td><input type="checkbox" wicket:id="selected"></td>
+             <td wicket:id="id">id</td>
+             <td wicket:id="title">title</td>
+             <td wicket:id="author">author</td>
+             <td><a wicket:id="edit">edit</a></td>
+         </tr>
+     </table>
+     <input type="submit" >
+ </form>
+</body>
+</html>
