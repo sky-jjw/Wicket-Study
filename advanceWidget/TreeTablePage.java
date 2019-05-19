@@ -21,7 +21,11 @@ public class TreeTablePage extends WebPage {
                 new PropertyTreeColumn(new ColumnLocation(ColumnLocation.Alignment.LEFT, 18, ColumnLocation.Unit.EM),"作者","userObject.author"),
                 new PropertyTreeColumn(new ColumnLocation(ColumnLocation.Alignment.LEFT, 12, ColumnLocation.Unit.EM),"标题","userObject.title"),
         };
-
+        /**
+         * para1:wicket-id
+         * para2:构建model的方法
+         * para3:定义的列
+         */
         final TreeTable tree=new TreeTable("treeTable",buildTreeModel(),columns);
         //允许多选
         tree.getTreeState().setAllowSelectMultiple(true);
@@ -42,7 +46,7 @@ public class TreeTablePage extends WebPage {
         });
     }
 
-    /*构建又给TreeModel*/
+    /*构建一个TreeModel*/
     private TreeModel buildTreeModel(){
         Book rootBook=new Book();
         rootBook.setAuthor("根作者");
