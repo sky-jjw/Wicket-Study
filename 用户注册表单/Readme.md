@@ -106,6 +106,6 @@ public interface IValidator extends Serializable{
         form.add(accountTextField);
 ```
 - Form验证数据的流程
-![Image text]()
+![Image text](https://github.com/sky-jjw/Wicket-Study/blob/master/%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C%E8%A1%A8%E5%8D%95/resources/1.png)
 
 
