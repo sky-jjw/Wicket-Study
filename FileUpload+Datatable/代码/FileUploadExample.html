@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>FileUpload Example</title>
+</head>
+<body>
+	<form wicket:id="form">
+		<div>
+			<input wicket:id="upload" type="file" accept=".csv,.txt"> 
+			<input wicket:id="showStudentInfo" type="submit"  value="upload student"><br>
+			<div wicket:id="feedback"></div>
+		</div>
+		<table wicket:id = "studentsTable"></table>
+	</form>
+
+</body>
+</html>
