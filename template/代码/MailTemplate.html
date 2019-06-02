@@ -1,0 +1,24 @@
+<html xmlns:wicket="http://www.w3.org/1999/xhtml">
+<head>
+    <title>mailtemplate</title>
+</head>
+<body>
+    <div wicket:id="feedback"></div>
+    <form wicket:id="form">
+            Enter your name<input wicket:id="name" type="text">
+    </form>
+
+    Using Wicket page as template: <a wicket:id="pageBasedLink">generate</a>.
+    <br/>
+    Using Wicket panel as template: <a wicket:id="panelBasedLink">generate</a>.
+    <br/>
+    Using Wicket TextTemplate as template: <a wicket:id="textTemplateBasedLink">generate</a><div class=""></div>
+    <br/><br/>
+
+    <h3>Here is the generated markup:</h3>
+    <div wicket:id="result" id="result">
+
+    </div>
+</body>
+
+</html>
